@@ -1,0 +1,24 @@
+sudo: required
+
+language: minimal
+
+services:
+  - docker
+
+env:
+  global:
+    - DOCKER_REPO: 9jkh/dotdeb
+    # DOCKER_USERNAME
+    - secure: tPj6qSwNO6uPICqA0vGH0QVTrkpBitSVitblfnN6RDXD1RRgmXgh0jZrWtfexFVCiQtE67gpj/iy2dj8c+CjwmcSBOkrInTKgul616mQgl39RkkTFMZUlPMAvKGalgaJRvs4DzeE4pRLTCX8NHRdt4WPFQzXPEmbDpP2IfWwVjYIoU+MEdJH6wb0gSou4aQYrXzW+WNnHhRdCwWaGwG0uO/BRt6uKd5sXOlDs+nXZ+ITcgMfcEXiZ1JUYEdBIe2zPpbZw9aZy+V6NfkbCT2MExOZmSuOz5yQYRnbUZiMd5R2iScur4ZaKay7rSFrDMl5SJWYVPmDEkN51sYpWgdbjZSLiFuig8ysiTxTX2dZHvl3ItveIjmrRLigaPMgWEBt2+rbPjw0EsnHSEuDyyNXIuLCgeqIuLE9pYiDuwJdMtxQhfTeWTVBxkH8OOqR2xWEV/ZZaAgpde051QtBvzVxPRR1yYbwHpeuWmvQ/ZNZrKmGDND8KfZOakNTCKPEawMhzQAB70vMUMJJ3VX89CmnGyBgvIIIhhPbJ9EuONneDp2EN9a3tgUdcP6tIUqfpM4BV+tEZVRMWjyuI0Z/n+6Nlfj5go70jyB2iLWUYjCM0aCnVTQScD9YZFqAkniwGuBIA5sDxgu1Bv9H5BWR8wfVVmwpUjQ9DvM0ls9b9LhJVG0=
+    # DOCKER_PASSWORD
+    - secure: d8ejFLox8zSUuSHnLZUyEaOLhv9kTIzY3I+9E2+BT/TWvq3+4WRoaJGVwAgMymPOthGg89WTs+dH2kTbgAWehg8VU8D1GDwGsM4NFFYFU0VX5O0kMLqno8wnpHUvxVjCpLoFNUHIJpPnVfLn18MlnnHLndetThcOERP1jQd1ZYfk+dfZEAUrz8jZlrPdalzeVTDnaKV/Sqbu1YM1p+SEtg+5ljHlbuypzwCAJAMHS0YQ85Bnur2FYlnKZQHCZXYbonZFu/1N9nFoXphcFZmOOgCVdpVdVpA03a9fGaZpl+De9vgMq+pXDzAv/uyna54uUpGX7ORlue5XgIacM76fm6tJAsYhLHWeIBOmS1D2RYRuP3pAOAokY2GCgBkSPk3Rle10FyB8s8DBjfm9+tBVrjIDzxKR3sOiM+0Wxa8jxpSdIXZblBJSc2PdQsRHvbDwHU+tzZrkVUfGGhnPAgE5L+GqlQedARVzYqCq2+TB9DGMkkKkWnRIIqw1K1VEG5U87B0AaWtg4CV26+5EnIcMOqq8hf4dnwL/EAPU2AEITVvAZjm5z/Rl/NgVtvvYK4pB+gumErEORSZ4ftQdhknBtPPYNN39zDchtQ3XpFBX+6etTr8jOMBB5Z0U6l+3AHRbqNV8wFJisXXmoxU4GFkMtLXsBpFceCmX+tMxsi/7Zaw=
+
+before_install:
+  - ./build.sh
+
+deploy:
+  provider: script
+  script: "./push.sh"
+  skip_cleanup: true
+  on:
+    branch: master
