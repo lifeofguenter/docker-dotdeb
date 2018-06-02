@@ -29,4 +29,5 @@ RUN apt-get update -qq && apt-get install -y -qq \
   libwww-perl \
   curl \
   wget \
-  apt-transport-https
+  apt-transport-https \
+  java-package
