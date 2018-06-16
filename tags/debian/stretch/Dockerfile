@@ -18,4 +18,5 @@ RUN apt-get update -qq && apt-get install -y -qq \
   curl \
   wget \
   apt-transport-https \
-  java-package
+  java-package \
+  xmlstarlet
